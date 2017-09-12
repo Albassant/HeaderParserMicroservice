@@ -9,7 +9,10 @@ var app = express();
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
 // http://expressjs.com/en/starter/static-files.html
-// app.use(express.static('public'));
+app.use(express.static('public'));
+app.get("/", function(request, response) {
+  response.sendFile(__dirname + "/views/index.html");
+});
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/api/whoami", function (request, response) {
